@@ -1,0 +1,1161 @@
+/* Se establece que el tamaño de los elementos debe incluir bordes y rellenos */
+* {
+  box-sizing: border-box;
+}
+
+/* Se establece el color de fondo del cuerpo de la página */
+body {
+  background-color: #222831;
+  min-width: 300px;
+}
+
+/* Se establecen estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #222831;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #161a20;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #556173;
+}
+/* Se establecen estilos para el encabezado */
+.header {
+  display: flex;
+  height: 90px;
+}
+
+.header__title {
+  display: block;
+  margin-top: 35px;
+  margin-left: 3.5%;
+  font-family: "Orbitron", sans-serif;
+  color: #f05454;
+}
+
+/* Se establecen estilos para el contenido principal */
+
+.main {
+  display: block;
+}
+
+.encryption-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2% 2%;
+  min-height: 690px;
+}
+
+.encryption-container__input,
+.encryption-container__output {
+  width: 35%;
+  max-height: 700px;
+}
+
+/* Se establecen estilos para los elementos de texto */
+.textarea {
+  width: 100%;
+  min-width: 250px;
+  height: 100%;
+  resize: none;
+  padding: 35px;
+  border: none;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  border-radius: 20px;
+  background: #222831;
+  box-shadow: inset 7px 7px 14px #161a20, inset -7px -7px 14px #2e3642;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.encryption-container__output {
+  position: relative;
+}
+
+/* Se establecen estilos para el boton de copiado del output text*/
+.output__copy-button {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #222831;
+  box-shadow: 5px 5px 10px #161a20, -5px -5px 10px #2e3642,
+    inset 0px 0px 0px #161a20, inset 0px 0px 0px #2e3642;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+  cursor: pointer;
+}
+
+.output__copy-button:active {
+  background: #222831;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+}
+
+/* Se establecen estilos para elmensaje del boton de copiado al realizar la acción*/
+.output__copy-message {
+  display: none;
+  position: absolute;
+  bottom: 23px;
+  right: 80px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.output__copy-message.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.output__copy-message.error {
+  background-color: #f44336;
+  color: white;
+}
+/* Se establecen estilos para el contenedor de menú */
+.encryption__menu-container {
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  display: block;
+  width: 22%;
+  min-width: 380px;
+  min-height: 400px;
+  border-radius: 20px;
+  background: #222831;
+  box-shadow: 7px 7px 14px #161a20, -7px -7px 14px #2e3642;
+}
+
+/* Se establecen estilos para el contenedor de selección de la accion a realizar: escriptación y desencriptación */
+.encryption__actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+
+.encryption__actions-list {
+  padding: 0;
+  border-radius: 15px;
+  background: #222831;
+  box-shadow: 5px 5px 10px #1b1f26, -5px -5px 10px #29313c;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.action__item {
+  list-style: none;
+  display: inline-block;
+  margin: 8px 10px;
+}
+
+.action__btn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  border: none;
+  text-decoration: none;
+  color: #dddddd;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  background: #222831;
+  cursor: pointer;
+}
+
+.action__btn:active {
+  border-radius: 15px;
+  transition: box-shadow 0.4s linear;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  color: #56ff80;
+  -webkit-transition: box-shadow 0.4s linear;
+  -moz-transition: box-shadow 0.4s linear;
+  -ms-transition: box-shadow 0.4s linear;
+  -o-transition: box-shadow 0.4s linear;
+}
+
+.action__btn-span {
+  text-transform: uppercase;
+}
+
+.action__btn .action__btn-span {
+  transition: transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  -moz-transition: transform 0.4s;
+  -ms-transition: transform 0.4s;
+  -o-transition: transform 0.4s;
+}
+
+.action__btn:active .action__btn-span {
+  transform: scale(0.92);
+  -webkit-transform: scale(0.92);
+  -moz-transform: scale(0.92);
+  -ms-transform: scale(0.92);
+  -o-transform: scale(0.92);
+}
+
+/*   Se establece clase desde un script para el seleccionado de un método entre los dos estados de encriptación: encriptación y desencriptación */
+.action__btn.active {
+  border-radius: 15px;
+  background: #222831;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 3px 3px 6px #1b1f26, inset -3px -3px 6px #29313c;
+  color: #56ff80;
+  transition: box-shadow 0.4s linear;
+  -webkit-transition: box-shadow 0.4s linear;
+  -moz-transition: box-shadow 0.4s linear;
+  -ms-transition: box-shadow 0.4s linear;
+  -o-transition: box-shadow 0.4s linear;
+}
+
+.action__btn-span.active {
+  transition: transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  -moz-transition: transform 0.4s;
+  -ms-transition: transform 0.4s;
+  -o-transition: transform 0.4s;
+  transform: scale(0.92);
+  -webkit-transform: scale(0.92);
+  -moz-transform: scale(0.92);
+  -ms-transform: scale(0.92);
+  -o-transform: scale(0.92);
+}
+
+/* Se establecen estilos para el boton de selección de tipo de cifrado */
+
+.encryption-type__btn-container {
+  display: flex;
+  padding-top: 15px;
+}
+
+.encryption-type__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 80%;
+  margin: 0 auto;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #dddddd;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background: #222831;
+  background-image: url("/icons/flecha-abajo.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 20px;
+  box-shadow: 5px 5px 10px #1b1f26, -5px -5px 10px #29313c,
+    inset 0px 0px 0px #1b1f26, inset 0px 0px 0px #29313c;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transition: background-image 0.4s ease-in-out, box-shadow 0.4s linear;
+}
+
+/* Se establecen estilos para el menu flotante al presionar el boton de tipo de cifrado*/
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.modal-content {
+  position: absolute;
+  height: 350px;
+  width: 35%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222831;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 7px 7px 14px #161a20, -7px -7px 14px #191e24;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.modal__label {
+  display: block;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #36404e;
+  text-align: left;
+  padding-right: 10px;
+}
+
+.close-button {
+  position: absolute;
+  color: #dddddd;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.encryption-option {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px 5px;
+  border: none;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  background: #222831;
+  transition: box-shadow 0.3s linear;
+  cursor: pointer;
+}
+
+.frame {
+  width: 14px;
+  height: 14px;
+  padding: 7px;
+  margin-top: 1.5px;
+  margin-left: 25px;
+  margin-right: 25px;
+  background: #222831;
+  box-shadow: inset 2px 2px 3px #0e1014, inset -2px -2px 3px #36404e;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.encryption-option:active .frame {
+  border-radius: 50%;
+  background: #56ff80;
+  box-shadow: 3px 3px 24px #226633, -3px -3px 24px #8affcd;
+}
+
+.frame.active {
+  border-radius: 50%;
+  background: #56ff80;
+  box-shadow: 3px 3px 34px #226633, -3px -3px 34px #8affcd;
+}
+
+/* Se establecen estilos para que cuando se seleccione la accion de copiado de contenido del text-area output este no modifique su estilo*/
+.output__textarea::selection {
+  background-color: transparent;
+}
+
+/* ------------------------------------------------------------ */
+
+/* Se establecen estilos para el contenedor de la descripción del algoritmo de encriptación o desencriptación seleccionado*/
+.description-container {
+  margin-bottom: 3%;
+  padding-left: 2.8%;
+  padding-right: 2.8%;
+}
+
+.description__aside {
+  min-height: 70%;
+  border-radius: 20px;
+  background: #222831;
+  box-shadow: 7px 7px 14px #161a20, -7px -7px 14px #2e3642;
+}
+
+.description__title {
+  color: #dddddd;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 2px;
+  padding-top: 25px;
+  padding-left: 30px;
+}
+
+.description__encryption {
+  padding-left: 35px;
+  padding-right: 50px;
+  padding-bottom: 30px;
+  color: #dddddd;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+/* Se establecen estilos para el Pie de página */
+
+.footer {
+  box-shadow: -5px -5px 10px #2e3642;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  font-family: "Orbitron", sans-serif;
+  color: #f05454;
+  margin-top: 30px;
+}
+
+.footer__copyright,
+.footer__description {
+  color: #dddddd;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.buttons-socialmedia {
+  display: flex;
+  margin-top: 25px;
+  align-items: center;
+  padding-bottom: 50px;
+  gap: 40px;
+}
+
+.button-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+  border-radius: 50%;
+  background: #222831;
+  box-shadow: 5px 5px 10px #161a20, -5px -5px 10px #2e3642,
+    inset 0px 0px 0px #161a20, inset 0px 0px 0px #2e3642;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+}
+
+.button-link .button-img {
+  transition: transform 0.3s;
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+}
+
+.button-link:active {
+  box-shadow: 0px 0px 0px #161a20, 0px 0px 0px #2e3642,
+    inset 5px 5px 10px #161a20, inset -5px -5px 10px #2e3642;
+}
+
+.button-link:active,
+.button-link:active .button-img {
+  transform: scale(0.96);
+  -webkit-transform: scale(0.96);
+  -moz-transform: scale(0.96);
+  -ms-transform: scale(0.96);
+  -o-transform: scale(0.96);
+}
+
+/**Apartir de aqui se aplican estilos a los menus especificos de cada cifrado para su customizacion*/
+
+/* Se aplican estilos al contenedor de todos los custom menus*/
+.cipherCustomMenu-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px 30px 0 30px;
+}
+
+/*  Estos estilos pertencen al custom Menu del cifrado ROT*/
+.rots-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.variants-rot__label {
+  margin: 10px 0 10px 0px;
+  padding: 10px;
+  border-bottom: 1px solid #36404e;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+}
+
+.regex-rot {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.rot {
+  display: flex;
+  flex-direction: row;
+  margin: 18px 0px 10px 0px;
+  padding: 10px 5px;
+  border: none;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  background: #222831;
+  transition: box-shadow 0.3s linear;
+  cursor: pointer;
+}
+
+.rot-frame {
+  width: 14px;
+  height: 14px;
+  padding: 7px;
+  margin-top: 1.5px;
+  margin-right: 25px;
+  border-radius: 50%;
+  background: #222831;
+  box-shadow: inset 2px 2px 3px #0e1014, inset -2px -2px 3px #36404e;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.rot:active .rot-frame {
+  border-radius: 50%;
+  background: #56ff80;
+  box-shadow: 3px 3px 24px #226633, -3px -3px 24px #8affcd;
+}
+
+.rot-frame.active {
+  border-radius: 50%;
+  background: #56ff80;
+  box-shadow: 3px 3px 34px #226633, -3px -3px 34px #8affcd;
+}
+
+/* Estos estilos pertencen al custom menu del cifrado BACON*/
+
+.select-box {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.variants-bacon-label {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #36404e;
+}
+
+.bacon-variants {
+  height: 50px;
+  width: 270px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  padding: 16px 0 16px 20px;
+  outline: none;
+  border: none;
+  appearance: none;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  font-size: 18px;
+  background: #222831;
+  box-shadow: 5px 5px 10px #1b1f26, -5px -5px 10px #29313c,
+    inset 0px 0px 0px #1b1f26, inset 0px 0px 0px #29313c;
+  cursor: pointer;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+  background-image: url("/icons/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 20px;
+}
+
+.bacon-variants:active {
+  background-image: url("/icons/chevron-up.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 18px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+}
+
+.option-variant {
+  font-size: 18px;
+}
+
+.simbol-label {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #36404e;
+  text-align: left;
+}
+
+.change-letter {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.letter-label {
+  font-size: 16px;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+}
+
+.letter-input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 60px;
+  color: #dddddd;
+  font-size: 20px;
+  text-align: center;
+  background: #222831;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+/* Estos estilos pertencen al custom menu del cifrado Alura*/
+.alura__super-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+.alura__label {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #36404e;
+  text-align: left;
+}
+.alura__vocal-label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+}
+.alura__vocal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.alura__vocals-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.alura__last-vocal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alura__vocal-input {
+  width: 100px;
+  height: 50px;
+  padding: 5px;
+  margin-bottom: 20px;
+  color: #dddddd;
+  font-size: 20px;
+  text-align: center;
+  background: #222831;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+/* Estos estilos pertencen al custom menu del cifrado Cesar*/
+
+.cesar-menu___container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cesar-menu__block-container {
+  width: 100%;
+}
+
+.cesar-menu__last-block-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  margin-bottom: 10px;
+}
+
+.cesar-menu___container label {
+  display: block;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #36404e;
+  text-align: left;
+  padding-right: 10px;
+}
+
+.offset-input {
+  width: 210px;
+  height: 45px;
+  padding: 5px;
+  margin-bottom: 20px;
+  color: #dddddd;
+  font-size: 20px;
+  text-align: center;
+  background: #222831;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.offset-input__container {
+  position: relative;
+}
+
+.offset-span-input {
+  position: absolute;
+  top: 17px;
+  right: 80px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.2rem;
+  color: #6f7277;
+}
+
+.alphabet-input {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: 20px;
+  color: #dddddd;
+  text-align: center;
+  letter-spacing: 1.5px;
+  background: #222831;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.cesar-menu___container select {
+  width: 165px;
+  height: 40px;
+  padding: 7px 0 7px 10px;
+  outline: none;
+  border: none;
+  appearance: none;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  background: #222831;
+  box-shadow: 5px 5px 10px #1b1f26, -5px -5px 10px #29313c,
+    inset 0px 0px 0px #1b1f26, inset 0px 0px 0px #29313c;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+  background-image: url("/icons/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.cesar-menu___container select:active {
+  background-image: url("/icons/chevron-up.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 18px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+}
+
+.substract-btn,
+.add-btn {
+  font-size: 20px;
+  color: #dddddd;
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #222831;
+  box-shadow: 3px 3px 7px #161a20, -3px -3px 7px #2e3642,
+    inset 0px 0px 0px #161a20, inset 0px 0px 0px #2e3642;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+}
+.substract-btn:active,
+.add-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0px 0px 0px #161a20, 0px 0px 0px #2e3642,
+    inset 5px 5px 10px #161a20, inset -5px -5px 10px #2e3642;
+  -webkit-transform: scale(0.96);
+  -moz-transform: scale(0.96);
+  -ms-transform: scale(0.96);
+  -o-transform: scale(0.96);
+}
+
+/* Estos estilos pertencen al custom menu del cifrado Cesar*/
+.vigenere-cipher__container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.vigenere-cipher__container div {
+  margin-bottom: 10px;
+}
+.vigenere-cipher__container label {
+  display: block;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: "Sofia Sans", sans-serif;
+  font-size: 1.2rem;
+  color: #dddddd;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid #36404e;
+  text-align: left;
+  padding-right: 10px;
+}
+
+.vigenere-variants,
+.vigenere-key-modes {
+  height: 50px;
+  width: 300px;
+  padding: 16px 0 16px 20px;
+  outline: none;
+  border: none;
+  appearance: none;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  background: #222831;
+  box-shadow: 5px 5px 10px #1b1f26, -5px -5px 10px #29313c,
+    inset 0px 0px 0px #1b1f26, inset 0px 0px 0px #29313c;
+  cursor: pointer;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+  background-image: url("/icons/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+}
+
+.vigenere-variants:active,
+.vigenere-key-modes:active {
+  background-image: url("/icons/chevron-up.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+}
+
+.vigenere-key__input {
+  width: 300px;
+  height: 40px;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  color: #dddddd;
+  text-align: center;
+  letter-spacing: 1.5px;
+  background: #222831;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.vigenere-alphabet-input {
+  width: 300px;
+  height: 40px;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  color: #dddddd;
+  text-align: center;
+  letter-spacing: 1.5px;
+  background: #222831;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.vigenere-menu__last-block-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350px;
+}
+
+.vigenere-menu__last-block-container select {
+  width: 165px;
+  height: 40px;
+  padding: 7px 0 7px 10px;
+  outline: none;
+  border: none;
+  appearance: none;
+  font-family: "Sofia Sans", sans-serif;
+  letter-spacing: 1.5px;
+  color: #dddddd;
+  background: #222831;
+  box-shadow: 5px 5px 10px #1b1f26, -5px -5px 10px #29313c,
+    inset 0px 0px 0px #1b1f26, inset 0px 0px 0px #29313c;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: box-shadow 0.3s linear;
+  -webkit-transition: box-shadow 0.3s linear;
+  -moz-transition: box-shadow 0.3s linear;
+  -ms-transition: box-shadow 0.3s linear;
+  -o-transition: box-shadow 0.3s linear;
+  background-image: url("/icons/chevron-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.vigenere-menu__last-block-container select:active {
+  background-image: url("/icons/chevron-up.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 18px;
+  box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
+    inset 4px 4px 8px #1d222a, inset -4px -4px 8px #272e38;
+}
+
+/* En caso de que la ventana tenga un ancho minimo de 1024px se realizaran los siguientes cambios */
+@media screen and (min-width: 1024px) {
+  .main {
+    min-height: calc(100vh - 90px);
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .encryption-container__input,
+  .encryption-container__output {
+    min-height: 700px;
+  }
+}
+/* En caso de que el ancho de la ventana sea menor a 1024px, ejecutar los siguientes cambios */
+@media screen and (max-width: 1500px) {
+  .header__title {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .encryption-container {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+  }
+
+  .encryption-container__input,
+  .encryption-container__output {
+    width: 80%;
+    height: 500px;
+  }
+  .cesar-menu__last-block-container,
+  .cesar-menu__last-block-container div,
+  .vigenere-menu__last-block-container,
+  .vigenere-menu__last-block-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .encryption__menu-container {
+    min-width: 400px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+}
+
+/* En caso de que la ventana posea un ancho menor a 460px, se ejecutaran los siguientes cambios */
+@media screen and (max-width: 460px) {
+  .encryption-container {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+  }
+  .buttons-socialmedia {
+    gap: 15px;
+  }
+  .encryption__menu-container {
+    min-width: 325px;
+  }
+  .footer__description {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .cesar-menu__last-block-container,
+  .cesar-menu__last-block-container div,
+  .vigenere-menu__last-block-container,
+  .vigenere-menu__last-block-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .encryption-container__input,
+  .encryption-container__output {
+    width: 95%;
+    height: 400px;
+  }
+
+  .encryption__actions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .option__item {
+    list-style: none;
+    display: inline-block;
+    margin: 8px;
+  }
+
+  .description-container {
+    width: 90%;
+    margin-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+  }
+
+  .encryption-type__btn {
+    padding: 10px 27px;
+  }
+}

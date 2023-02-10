@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bloque para incluir los tipos de letra de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bloque para incluir los estilos CSS -->
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <title>Secure String</title>
+  </head>
+  <body>
+    <!-- Bloque para la cabecera del sitio -->
+    <header class="header">
+      <h1 class="header__title">Secure String</h1>
+    </header>
+
+    <!-- Bloque principal del sitio -->
+    <main class="main">
+      <div class="encryption-container">
+        <!-- Bloque para el contenedor del texto de entrada -->
+        <div class="encryption-container__input">
+          <textarea
+            id="input-text"
+            class="input__textarea textarea"
+            aria-label="content"
+            placeholder="Pegué o ingresé su texto aquí..."
+          ></textarea>
+        </div>
+        <!-- Bloque para el menú de opciones de cifrado/codificado -->
+        <div class="encryption__menu-container">
+          <div class="encryption__actions-container">
+            <ul class="encryption__actions-list">
+              <li class="action__item">
+                <button id="encrypt" class="action__btn">
+                  <span id="encrypt-action-span" class="action__btn-span"
+                    >encriptar</span
+                  >
+                </button>
+              </li>
+              <li class="action__item">
+                <button id="decrypt" class="action__btn">
+                  <span id="decrypt-action-span" class="action__btn-span"
+                    >desencriptar</span
+                  >
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- boton de selección de tipo de cifrado -->
+          <nav class="encryption-type__nav">
+            <div class="encryption-type__btn-container">
+              <button id="encryption-type-button" class="encryption-type__btn">
+                <span
+                  class="encryption-type__btn-title"
+                  id="encryption-type-button-title"
+                ></span>
+              </button>
+            </div>
+            <div id="encryption-menu" class="modal">
+              <div class="modal-content">
+                <label class="modal__label">Cifrados</label>
+                <span class="close-button">&times;</span>
+                <button id="alura-cipher" class="encryption-option">
+                  <span class="frame"></span
+                  ><span class="cipher-name">Alura Cipher</span>
+                </button>
+                <button id="rot-cipher" class="encryption-option">
+                  <span class="frame"></span>
+                  <span class="cipher-name">ROT Cipher</span>
+                </button>
+                <button id="ceaser-cipher" class="encryption-option">
+                  <span class="frame"></span>
+                  <span class="cipher-name">Cifrado César</span>
+                </button>
+                <button id="bacon-cipher" class="encryption-option">
+                  <span class="frame"></span>
+                  <span class="cipher-name">Bacon Cipher</span>
+                </button>
+                <button id="vignere-cipher" class="encryption-option">
+                  <span class="frame"></span>
+                  <span class="cipher-name">Vigenère Cipher</span>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!--
+        Bloque para el contenedor donde se mostrará el resultado del cifrado/codificado
+      -->
+        <div class="encryption-container__output">
+          <textarea
+            readonly
+            id="output-text"
+            class="output__textarea textarea"
+            aria-label="content"
+          ></textarea>
+          <button class="output__copy-button" id="copy-button">
+            <img
+              src="/icons/copy.svg"
+              alt="Icono de Copiado"
+              class="copy-button__svg"
+            />
+          </button>
+          <div id="copy-message" class="output__copy-message"></div>
+        </div>
+      </div>
+      <!-- Bloque para el contenedor donde se explica el funcionamiento del cifrado/codificado seleccionado -->
+      <div class="description-container">
+        <aside class="description__aside">
+          <h2 id="description-title" class="description__title"></h2>
+          <p id="description-text" class="description__encryption"></p>
+        </aside>
+      </div>
+    </main>
+    <!--
+      Bloque del Pie de página
+    -->
+    <footer class="footer">
+      <div class="footer-container">
+        <h1 class="logo">Secure String</h1>
+        <p class="footer__copyright">
+          © 2023 Secure String. Creado por Jugaman. Todos los derechos
+          reservados
+        </p>
+        <p class="footer__description">
+          Con Secure Scring, los usuarios pueden encriptar y desencriptar datos
+          fácilmente, todo sin necesidad de interactuar con un servidor, lo que
+          la hace ideal para la privacidad y seguridad de los usuarios.
+        </p>
+        <div class="buttons-socialmedia">
+          <a
+            href="https://github.com/Jugaman"
+            target="_blank"
+            rel="noopener"
+            class="button-link"
+          >
+            <img
+              src="/icons/github.svg"
+              alt="Logo de Github"
+              class="button-img"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/juan-gabriel-mansilla/"
+            target="_blank"
+            rel="noopener"
+            class="button-link"
+          >
+            <img
+              src="/icons/linkedin.svg"
+              alt="Logo de Linkedin"
+              class="button-img"
+            />
+          </a>
+          <a
+            href="https://twitter.com/0xJugaman"
+            target="_blank"
+            rel="noopener"
+            class="button-link"
+          >
+            <img
+              src="/icons/twitter.svg"
+              alt="Logo de twitter"
+              class="button-img"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bloque para incluir los scripts de Javascript -->
+    <script src="/scripts/main.js" type="module" async></script>
+  </body>
+</html>
