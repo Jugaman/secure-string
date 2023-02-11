@@ -1,6 +1,8 @@
 /* Se establece que el tamaño de los elementos debe incluir bordes y rellenos */
 * {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none;
 }
 
 /* Se establece el color de fondo del cuerpo de la página */
@@ -275,7 +277,7 @@ body {
   border-radius: 15px;
   cursor: pointer;
   background: #222831;
-  background-image: url("./icons/flecha-abajo.svg");
+  background-image: url("../icons/flecha-abajo.svg");
   background-repeat: no-repeat;
   background-position: right 20px center;
   padding-right: 20px;
@@ -618,14 +620,14 @@ body {
   -moz-transition: box-shadow 0.3s linear;
   -ms-transition: box-shadow 0.3s linear;
   -o-transition: box-shadow 0.3s linear;
-  background-image: url("./icons/chevron-down.svg");
+  background-image: url("../icons/chevron-down.svg");
   background-repeat: no-repeat;
   background-position: right 20px center;
   padding-right: 20px;
 }
 
 .bacon-variants:active {
-  background-image: url("./icons/chevron-up.svg");
+  background-image: url("../icons/chevron-up.svg");
   background-repeat: no-repeat;
   background-position: right 20px center;
   padding-right: 18px;
@@ -863,13 +865,13 @@ body {
   -moz-transition: box-shadow 0.3s linear;
   -ms-transition: box-shadow 0.3s linear;
   -o-transition: box-shadow 0.3s linear;
-  background-image: url("/icons/chevron-down.svg");
+  background-image: url("../icons/chevron-down.svg");
   background-repeat: no-repeat;
   background-position: right 10px center;
 }
 
 .cesar-menu___container select:active {
-  background-image: url("./icons/chevron-up.svg");
+  background-image: url("../icons/chevron-up.svg");
   background-repeat: no-repeat;
   background-position: right 10px center;
   padding-right: 18px;
@@ -954,14 +956,14 @@ body {
   -moz-transition: box-shadow 0.3s linear;
   -ms-transition: box-shadow 0.3s linear;
   -o-transition: box-shadow 0.3s linear;
-  background-image: url("./icons/chevron-down.svg");
+  background-image: url("../icons/chevron-down.svg");
   background-repeat: no-repeat;
   background-position: right 20px center;
 }
 
 .vigenere-variants:active,
 .vigenere-key-modes:active {
-  background-image: url("./icons/chevron-up.svg");
+  background-image: url("../icons/chevron-up.svg");
   background-repeat: no-repeat;
   background-position: right 20px center;
   box-shadow: 0px 0px 0px #1d222a, 0px 0px 0px #272e38,
@@ -1039,13 +1041,13 @@ body {
   -moz-transition: box-shadow 0.3s linear;
   -ms-transition: box-shadow 0.3s linear;
   -o-transition: box-shadow 0.3s linear;
-  background-image: url("./icons/chevron-down.svg");
+  background-image: url("../icons/chevron-down.svg");
   background-repeat: no-repeat;
   background-position: right 10px center;
 }
 
 .vigenere-menu__last-block-container select:active {
-  background-image: url("./icons/chevron-up.svg");
+  background-image: url("../icons/chevron-up.svg");
   background-repeat: no-repeat;
   background-position: right 10px center;
   padding-right: 18px;
@@ -1157,5 +1159,9 @@ body {
 
   .encryption-type__btn {
     padding: 10px 27px;
+  }
+
+  .modal-content {
+    width: 95%;
   }
 }
