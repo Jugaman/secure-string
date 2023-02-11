@@ -330,7 +330,7 @@ const selectCipher = (selectedOption) => {
     const updatePlaceholder = () => {
       let offset = parseInt(offsetInput.value) % alphabetInput.value.length;
       let letter = alphabetInput.value[offset];
-      offsetPlaceholder.innerHTML = `${alphabetInput.value[0]} 🠖 ${letter}`;
+      offsetPlaceholder.innerHTML = `${alphabetInput.value[0]} ➔ ${letter}`;
     };
     // Llama a la función para actualizar el engañso placeholder por primera vez
     updatePlaceholder();
